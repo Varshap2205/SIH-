@@ -4,7 +4,7 @@ import React from 'react';
 function Pricing() {
   return (
     <>
-      <div className='flex flex-col lg:flex-row justify-center gap-10 p-4'>
+      <div className='flex flex-col lg:flex-row justify-center gap-10 p-4' id='pricing'>
         
         <div className="w-full lg:w-1/3 bg-[#3c4043] text-white rounded-lg shadow-lg p-6">
           <h2 className="text-2xl font-bold mb-4 bg-[#3c4043]">Free plan</h2>
@@ -25,7 +25,7 @@ function Pricing() {
               <span className="text-blue-500 mr-2 bg-[#3c4043]">✔️</span> Users can Hire Lawyers and Upload Case Documents
             </li>
           </ul>
-          <button className="w-full py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg mt-44">
+          <button className="w-full py-3 bg-blue-500 hover:bg-blue-700 text-white rounded-lg mt-44">
             Choose plan
           </button>
         </div>
@@ -56,7 +56,7 @@ function Pricing() {
               <span className="text-blue-500 mr-2 bg-[#3c4043]">✔️</span> Status Of The Case Can Be Seen
             </li>
           </ul>
-          <button className="w-full py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg mt-[75px]">
+          <button className="w-full py-3 bg-blue-500 hover:bg-blue-700 text-white rounded-lg mt-[75px]">
             Choose plan
           </button>
         </div>
