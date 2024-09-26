@@ -1,44 +1,35 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import profile from "../Assets/image1.avif";
-import { Link } from "react-router-dom";
-import { useFirebase } from "../../Firebase/FireBase";
+import { Link, useNavigate } from "react-router-dom";
+// import { useFirebase } from "../../Firebase/FireBase";
 
-function Profile() {
-
-  const [uid,setUid] = useState('')
-  const firebase = useFirebase()
-  const [user,setUser] = useState('')
+function Profile({user}) {
+  const navigate = useNavigate()
+  // console.log(user.photoURL);
   
-  const getData =async()=>{
-    if (firebase.user) {
-      setUid(firebase.user.uid)
-      console.log(firebase.user.uid);
-
-      const user =await firebase.getDocs(firebase.user.uid)
-
-      console.log(user.data());
-      setUser(user.data())
-    } 
-  }
   useEffect(()=>{
-       getData()
+    if(!user){
+       navigate('/profile')
+    }
   })
   return (
     <div className="mx-auto px-4 h-full border border-slate-400 rounded-md mt-10">
       <div className="flex flex-col md:flex-row items-center justify-between">
         {/* Profile Image */}
         <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden bg-gray-900 flex justify-center items-center mx-auto md:mx-0 my-8">
-          <img
+          {/* <img
             className="w-full h-full object-cover"
-            src={profile}
+            src={user.photoURL}
             alt="Profile"
+          /> */}
+          <img src={user.photoURL} alt="profile" className="w-full h-full object-cover"
           />
         </div>
 
         {/* Profile Info and Actions */}
         <div className="text-center md:text-left md:ml-16 flex-1">
           <h1 className="text-4xl md:text-5xl font-semibold mb-6 md:mb-10">
-            {user.displayName} {uid}
+            {user.name} 
           </h1>
 
           <div className="flex flex-col md:flex-row justify-center md:justify-start items-center md:items-start gap-4 mb-8">

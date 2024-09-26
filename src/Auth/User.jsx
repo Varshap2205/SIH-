@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Auth = () => {
     const [createAccount,setCreateAccount] = useState(false);
+    const [name,setName] = useState('')
     const [email , setEmail] = useState('')
     const [password , setPassword] = useState('')
     const firebase = useFirebase()
@@ -27,7 +28,7 @@ const Auth = () => {
     const handleSignUp =async()=>{
         const who ='user'
         const  data ={
-            email,password
+            email,password,name
         }
         await firebase.createUser(data,who)
         setEmail('')
@@ -47,7 +48,14 @@ const Auth = () => {
                  <>
                     <div className='pl-6 pr-6  ' >
                        <div className='mt-4 p-1 text-center text-[18px]'>Create Account</div>
-
+                       <div className='mt-6  mb-2 flex flex-col'>
+                            <label >NAME</label>
+                            <input type="text" 
+                            value={name}
+                            onChange={(e)=>setName(e.target.value)}
+                            className='border mt-1 p-1 rounded-sm border-gray-500 focus:outline-none focus:border-orange-400 '
+                            />
+                        </div>
                         <div className='mt-6  mb-2 flex flex-col'>
                             <label >EMAIL</label>
                             <input type="email" 
