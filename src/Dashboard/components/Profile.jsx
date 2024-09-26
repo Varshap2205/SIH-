@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
-import profile from "../Assets/image1.avif";
+import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-// import { useFirebase } from "../../Firebase/FireBase";
 
 function Profile({user}) {
   const navigate = useNavigate()
